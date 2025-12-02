@@ -1,0 +1,139 @@
+.event-card {
+  background-color: var(--white);
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+
+.event-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.event-image {
+  height: 12rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.event-placeholder {
+  font-size: 3.75rem;
+  color: var(--white);
+}
+
+.event-category-cultural {
+  background-color: var(--secondary-color);
+}
+
+.event-category-technical {
+  background-color: var(--primary-color);
+}
+
+.event-category-workshops {
+  background-color: var(--accent-color);
+}
+
+.event-category-seminars {
+  background-color: var(--success-color);
+}
+
+.event-category-sports {
+  background-color: #eab308;
+}
+
+.event-content {
+  padding: 1rem;
+}
+
+.event-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.event-badge {
+  color: var(--white);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+}
+
+.badge-cultural {
+  background-color: var(--secondary-color);
+}
+
+.badge-technical {
+  background-color: var(--primary-color);
+}
+
+.badge-workshops {
+  background-color: var(--accent-color);
+}
+
+.badge-seminars {
+  background-color: var(--success-color);
+}
+
+.badge-sports {
+  background-color: #eab308;
+}
+
+.event-date {
+  font-size: 0.875rem;
+  color: var(--gray-500);
+}
+
+.event-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.event-description {
+  color: var(--gray-600);
+  font-size: 0.875rem;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.event-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: var(--gray-500);
+  margin-bottom: 0.75rem;
+}
+
+.event-btn {
+  display: block;
+  width: 100%;
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
+  font-weight: 600;
+}
+
+.event-btn:hover {
+  background-color: #1d4ed8;
+}
