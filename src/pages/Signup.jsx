@@ -20,17 +20,34 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('=== FORM SUBMITTED ===');
+    console.log('Form data:', { ...formData, password: '***' });
+    
     setError('');
     setLoading(true);
 
     try {
       await register(formData);
+      console.log('Registration successful, navigating to /events');
       navigate('/events');
     } catch (err) {
-      setError(err.response?.data?.message || 'Registration failed');
+      console.error('Registration error caught:', err);
+      const errorMessage = err.response?.data?.message || 
+                          err.message || 
+                          'Registration failed. Please try again.';
+      setError(errorMessage);
+      alert('Error: ' + errorMessage); // Temporary alert for debugging
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   return (
@@ -52,9 +69,10 @@ const Signup = () => {
             <label className="form-label">Full Name *</label>
             <input
               type="text"
+              name="name"
               required
               value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              onChange={handleChange}
               className="form-input"
               placeholder="John Doe"
             />
@@ -64,9 +82,10 @@ const Signup = () => {
             <label className="form-label">Email Address *</label>
             <input
               type="email"
+              name="email"
               required
               value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              onChange={handleChange}
               className="form-input"
               placeholder="john@example.com"
             />
@@ -76,9 +95,10 @@ const Signup = () => {
             <label className="form-label">Password *</label>
             <input
               type="password"
+              name="password"
               required
               value={formData.password}
-              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+              onChange={handleChange}
               className="form-input"
               placeholder="••••••••"
               minLength="6"
@@ -88,8 +108,9 @@ const Signup = () => {
           <div className="form-group">
             <label className="form-label">I am a *</label>
             <select
+              name="role"
               value={formData.role}
-              onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+              onChange={handleChange}
               className="form-select"
             >
               <option value="student">Student</option>
@@ -102,8 +123,9 @@ const Signup = () => {
               <label className="form-label">Phone Number</label>
               <input
                 type="tel"
+                name="phone"
                 value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                onChange={handleChange}
                 className="form-input"
                 placeholder="+91 9876543210"
               />
@@ -113,8 +135,9 @@ const Signup = () => {
               <label className="form-label">College/University</label>
               <input
                 type="text"
+                name="college"
                 value={formData.college}
-                onChange={(e) => setFormData({ ...formData, college: e.target.value })}
+                onChange={handleChange}
                 className="form-input"
                 placeholder="Rishihood University"
               />
@@ -125,8 +148,9 @@ const Signup = () => {
             <label className="form-label">Department/Branch</label>
             <input
               type="text"
+              name="department"
               value={formData.department}
-              onChange={(e) => setFormData({ ...formData, department: e.target.value })}
+              onChange={handleChange}
               className="form-input"
               placeholder="Computer Science"
             />
