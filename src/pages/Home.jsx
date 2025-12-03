@@ -8,28 +8,24 @@ const Home = () => {
       category: 'Cultural',
       icon: '🎭',
       description: 'Fests, music, dance & drama',
-      count: 24,
       colorClass: 'bg-pink',
     },
     {
       category: 'Technical',
       icon: '💻',
       description: 'Hackathons, coding & tech talks',
-      count: 24,
       colorClass: 'bg-blue',
     },
     {
       category: 'Workshops',
-      icon: '🎨',
+      icon: '📐',
       description: 'Skill development & training',
-      count: 24,
       colorClass: 'bg-orange',
     },
     {
       category: 'Seminars',
-      icon: '📚',
+      icon: '🎤',
       description: 'Guest lectures & talks',
-      count: 24,
       colorClass: 'bg-green',
     },
   ];
@@ -59,7 +55,6 @@ const Home = () => {
                 </Link>
               </div>
             </div>
-            <div className="hero-image"></div>
           </div>
         </div>
       </div>
